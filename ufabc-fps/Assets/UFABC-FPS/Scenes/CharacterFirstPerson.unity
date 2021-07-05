@@ -162,6 +162,10 @@ PrefabInstance:
       propertyPath: m_LocalRotation.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2300000, guid: 95bbe2885334e3c46b79c3419edb469c, type: 3}
+      propertyPath: m_Materials.Array.data[2]
+      value: 
+      objectReference: {fileID: 2100000, guid: 35fe0b7167cdb944a868e2996465f9da, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 95bbe2885334e3c46b79c3419edb469c, type: 3}
 --- !u!4 &6063821 stripped
@@ -169,6 +173,63 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 400006, guid: 95bbe2885334e3c46b79c3419edb469c, type: 3}
   m_PrefabInstance: {fileID: 6063820}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &60233769
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2015434656898269652, guid: e29d43f43cc5d82499dd9926e01847d3, type: 3}
+      propertyPath: m_Name
+      value: Enemy_Turret
+      objectReference: {fileID: 0}
+    - target: {fileID: 2015434656898269656, guid: e29d43f43cc5d82499dd9926e01847d3, type: 3}
+      propertyPath: m_RootOrder
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 2015434656898269656, guid: e29d43f43cc5d82499dd9926e01847d3, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -35
+      objectReference: {fileID: 0}
+    - target: {fileID: 2015434656898269656, guid: e29d43f43cc5d82499dd9926e01847d3, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2015434656898269656, guid: e29d43f43cc5d82499dd9926e01847d3, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 2015434656898269656, guid: e29d43f43cc5d82499dd9926e01847d3, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2015434656898269656, guid: e29d43f43cc5d82499dd9926e01847d3, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2015434656898269656, guid: e29d43f43cc5d82499dd9926e01847d3, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2015434656898269656, guid: e29d43f43cc5d82499dd9926e01847d3, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2015434656898269656, guid: e29d43f43cc5d82499dd9926e01847d3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2015434656898269656, guid: e29d43f43cc5d82499dd9926e01847d3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2015434656898269656, guid: e29d43f43cc5d82499dd9926e01847d3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: e29d43f43cc5d82499dd9926e01847d3, type: 3}
 --- !u!4 &169952860 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400006, guid: fad35a70731ab804c975c717ee8862a5, type: 3}
@@ -857,6 +918,11 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: 25712b9d3dd0eb4439390fb8fea8043e, type: 3}
   m_PrefabInstance: {fileID: 629462469}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &673987332 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 400008, guid: fad35a70731ab804c975c717ee8862a5, type: 3}
+  m_PrefabInstance: {fileID: 1496563450}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &679478535
 GameObject:
@@ -2087,12 +2153,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4cb5371dba09ee46806cbe0c2aa2c9c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TurretPivot: {fileID: 0}
+  TurretPivot: {fileID: 673987332}
   TurretAimPoint: {fileID: 532925112}
-  Animator: {fileID: 0}
+  Animator: {fileID: 1719819789}
   AimRotationSharpness: 5
   LookAtRotationSharpness: 2.5
-  DetectionFireDelay: 1
+  DetectionFireDelay: 1.1
   AimingTransitionBlendTime: 1
   RandomHitSparks:
   - {fileID: 7635230255058315795, guid: 7593818fba43c7f4c8372299ce5e893f, type: 3}
@@ -2156,7 +2222,7 @@ MonoBehaviour:
   FlashOnHitDuration: 0.125
   DamageTick: {fileID: 8300000, guid: a7fae22399a6e1d448dc0dd2210f1dac, type: 3}
   DeathVfx: {fileID: 8950624839484268180, guid: 45ce85b82008be84287f2c7e5bf07647, type: 3}
-  DeathVfxSpawnPoint: {fileID: 0}
+  DeathVfxSpawnPoint: {fileID: 673987332}
   LootPrefab: {fileID: 0}
   DropRate: 1
   PathReachingRangeColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
@@ -2211,7 +2277,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Affiliation: 0
-  AimPoint: {fileID: 1137677547}
+  AimPoint: {fileID: 169952860}
 --- !u!114 &1137677542
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2325,7 +2391,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 25712b9d3dd0eb4439390fb8fea8043e, type: 3}
       propertyPath: m_TagString
-      value: enemy
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 25712b9d3dd0eb4439390fb8fea8043e, type: 3}
       propertyPath: m_RootOrder
@@ -2404,7 +2470,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 100018, guid: fad35a70731ab804c975c717ee8862a5, type: 3}
       propertyPath: m_Name
-      value: Turret
+      value: TurretRobot
       objectReference: {fileID: 0}
     - target: {fileID: 400018, guid: fad35a70731ab804c975c717ee8862a5, type: 3}
       propertyPath: m_RootOrder
@@ -2771,6 +2837,11 @@ AudioListener:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1696989077}
   m_Enabled: 1
+--- !u!95 &1719819789 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 9500000, guid: fad35a70731ab804c975c717ee8862a5, type: 3}
+  m_PrefabInstance: {fileID: 1496563450}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1913092213
 GameObject:
   m_ObjectHideFlags: 0
