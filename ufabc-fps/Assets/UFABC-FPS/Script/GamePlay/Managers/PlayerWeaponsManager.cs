@@ -20,7 +20,7 @@ namespace Unity.FPS.Gameplay
         public List<WeaponController> StartingWeapons = new List<WeaponController>();
 
         [Header("References")] [Tooltip("Secondary camera used to avoid seeing weapon go throw geometries")]
-        public Camera WeaponCamera;
+        public Transform WeaponCamera;
 
         [Tooltip("Parent transform where all weapon will be added in the hierarchy")]
         public Transform WeaponParentSocket;
@@ -206,8 +206,8 @@ namespace Unity.FPS.Gameplay
         // Sets the FOV of the main camera and the weapon camera simultaneously
         public void SetFov(float fov)
         {
-            m_PlayerCharacterController.PlayerCamera.fieldOfView = fov;
-            WeaponCamera.fieldOfView = fov * WeaponFovMultiplier;
+            // m_PlayerCharacterController.PlayerCamera.fieldOfView = fov;
+            // WeaponCamera.fieldOfView = fov * WeaponFovMultiplier;
         }
 
         // Iterate on all weapon slots to find the next valid weapon to switch to
