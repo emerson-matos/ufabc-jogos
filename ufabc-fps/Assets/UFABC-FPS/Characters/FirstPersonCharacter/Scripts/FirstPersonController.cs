@@ -1,4 +1,5 @@
 using System;
+using MLAPI;
 using UnityEngine;
 using UnityStandardAssets.CrossPlatformInput;
 using UnityStandardAssets.Utility;
@@ -9,7 +10,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
 {
     [RequireComponent(typeof(CharacterController))]
     [RequireComponent(typeof(AudioSource))]
-    public class FirstPersonController : MonoBehaviour
+    public class FirstPersonController : NetworkBehaviour
     {
         [SerializeField] public bool m_IsWalking { get; private set; }
         [SerializeField] private float m_WalkSpeed;
@@ -51,18 +52,23 @@ namespace UnityStandardAssets.Characters.FirstPerson
         // Use this for initialization
         private void Start()
         {
-            m_CharacterController = GetComponent<CharacterController>();
-            m_Camera = Camera.main;
-            m_OriginalCameraPosition = m_Camera.transform.localPosition;
-            m_FovKick.Setup(m_Camera);
-            m_HeadBob.Setup(m_Camera, m_StepInterval);
-            m_StepCycle = 0f;
-            m_NextStep = m_StepCycle / 2f;
-            m_Jumping = false;
-            m_AudioSource = GetComponent<AudioSource>();
-            m_MouseLook.Init(transform, m_Camera.transform, m_Head, m_Body);
+            if (!IsLocalPlayer)
+            {
+                GetComponent<Camera>().enabled = false;
+            }
+            else
+            {
+                m_CharacterController = GetComponent<CharacterController>();
+                m_OriginalCameraPosition = m_Camera.transform.localPosition;
+                m_FovKick.Setup(m_Camera);
+                m_HeadBob.Setup(m_Camera, m_StepInterval);
+                m_StepCycle = 0f;
+                m_AudioSource = GetComponent<AudioSource>();
+                m_NextStep = m_StepCycle / 2f;
+                m_Jumping = false;
+                m_MouseLook.Init(transform, m_Camera.transform, m_Head, m_Body);
+            }
         }
-
 
         // Update is called once per frame
         private void Update()

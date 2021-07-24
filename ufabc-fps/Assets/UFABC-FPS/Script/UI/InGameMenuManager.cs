@@ -3,6 +3,7 @@ using Unity.FPS.Gameplay;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
+using UnityStandardAssets.Characters.FirstPerson;
 
 namespace Unity.FPS.UI
 {
@@ -29,17 +30,17 @@ namespace Unity.FPS.UI
         [Tooltip("GameObject for the controls")]
         public GameObject ControlImage;
 
-        PlayerInputHandler m_PlayerInputsHandler;
+        // MouseLook m_MouseLook;
         Health m_PlayerHealth;
         FramerateCounter m_FramerateCounter;
 
         void Start()
         {
-            m_PlayerInputsHandler = FindObjectOfType<PlayerInputHandler>();
-            DebugUtility.HandleErrorIfNullFindObject<PlayerInputHandler, InGameMenuManager>(m_PlayerInputsHandler,
-                this);
+            // m_MouseLook = FindObjectOfType<MouseLook>();
+            // DebugUtility.HandleErrorIfNullFindObject<MouseLook, InGameMenuManager>(m_MouseLook,
+            //     this);
 
-            m_PlayerHealth = m_PlayerInputsHandler.GetComponent<Health>();
+            m_PlayerHealth = FindObjectOfType<Health>();
             DebugUtility.HandleErrorIfNullGetComponent<Health, InGameMenuManager>(m_PlayerHealth, this, gameObject);
 
             m_FramerateCounter = FindObjectOfType<FramerateCounter>();
@@ -47,7 +48,8 @@ namespace Unity.FPS.UI
 
             MenuRoot.SetActive(false);
 
-            LookSensitivitySlider.value = m_PlayerInputsHandler.LookSensitivity;
+            LookSensitivitySlider.value = 2f; 
+            // m_MouseLook.XSensitivity;
             LookSensitivitySlider.onValueChanged.AddListener(OnMouseSensitivityChanged);
 
             ShadowsToggle.isOn = QualitySettings.shadows != ShadowQuality.Disable;
@@ -128,7 +130,9 @@ namespace Unity.FPS.UI
 
         void OnMouseSensitivityChanged(float newValue)
         {
-            m_PlayerInputsHandler.LookSensitivity = newValue;
+            Debug.Log("trocando sensibilidade do mouse para " + newValue);
+            // m_MouseLook.XSensitivity = newValue;
+            // m_MouseLook.YSensitivity = newValue;
         }
 
         void OnShadowsChanged(bool newValue)

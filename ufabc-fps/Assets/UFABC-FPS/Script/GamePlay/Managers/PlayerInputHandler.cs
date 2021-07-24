@@ -1,9 +1,11 @@
-﻿using Unity.FPS.Game;
+﻿//using MLAPI;
+using Unity.FPS.Game;
 using UnityEngine;
 
 namespace Unity.FPS.Gameplay
 {
     public class PlayerInputHandler : MonoBehaviour
+        //NetworkBehaviour
     {
         [Tooltip("Limit to consider an input when using a trigger on a controller")]
         public float TriggerAxisThreshold = 0.4f;

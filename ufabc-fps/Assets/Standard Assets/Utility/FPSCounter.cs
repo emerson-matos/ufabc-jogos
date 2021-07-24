@@ -31,7 +31,7 @@ namespace UnityStandardAssets.Utility
             m_FpsAccumulator++;
             if (Time.realtimeSinceStartup > m_FpsNextPeriod)
             {
-                m_CurrentFps = (int) (m_FpsAccumulator/fpsMeasurePeriod);
+                m_CurrentFps = (int)(m_FpsAccumulator / fpsMeasurePeriod);
                 m_FpsAccumulator = 0;
                 m_FpsNextPeriod += fpsMeasurePeriod;
                 m_Text.text = string.Format(display, m_CurrentFps, mode);
